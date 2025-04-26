@@ -32,7 +32,7 @@ public class LocationController {
     }
 
     @GetMapping("/id-between")
-    public List<Location> findByIdBetween(@RequestParam Long starting,
+    public List<Location> findByIdBetween(@RequestParam(defaultValue = "0", required = false) Long starting,
                                           @RequestParam Long ending){
         return locationService.findByIdBetween(starting, ending);
     }

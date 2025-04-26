@@ -20,6 +20,11 @@ GET http://localhost:8080/api/locations/id-between
     &ending=4
 
 ###
+GET http://localhost:8080/api/locations/id-between
+    ?ending=4
+
+
+###
 GET http://localhost:8080/api/locations/2/country/Spain
 
 <> 2025-04-26T123141.200.json
