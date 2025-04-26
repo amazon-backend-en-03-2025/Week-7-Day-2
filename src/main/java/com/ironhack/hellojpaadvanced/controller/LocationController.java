@@ -46,4 +46,9 @@ public class LocationController {
     public Location save(@RequestBody Location location){
         return locationService.save(location);
     }
+
+    @GetMapping("/name/{name}")
+    public List<Location> findByName(@PathVariable String name){
+        return locationService.findByName(name);
+    }
 }

@@ -38,4 +38,10 @@ public class LocationService {
     public Location save(Location location) {
         return locationRepository.save(location);
     }
+
+    public List<Location> findByName(String name) {
+//        return locationRepository.thisMethodWillReturnAllLocationsByNameWithJPQL(name);
+        return locationRepository.thisMethodWillReturnAllLocationsByNameWithNativeQuery(name);
+    }
+
 }

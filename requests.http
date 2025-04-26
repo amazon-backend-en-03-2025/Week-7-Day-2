@@ -42,3 +42,10 @@ Content-Type: application/json
 }
 
 <> 2025-04-26T123528.200.json
+
+###
+GET localhost:8080/api/locations/name/Sicily
+
+
+###
+GET http://localhost:8080/api/hotels/hotel-type/LUXURY/location-id/1

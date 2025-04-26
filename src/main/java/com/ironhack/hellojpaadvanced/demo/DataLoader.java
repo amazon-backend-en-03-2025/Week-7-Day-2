@@ -1,6 +1,9 @@
 package com.ironhack.hellojpaadvanced.demo;
 
+import com.ironhack.hellojpaadvanced.model.Hotel;
 import com.ironhack.hellojpaadvanced.model.Location;
+import com.ironhack.hellojpaadvanced.model.enums.HotelType;
+import com.ironhack.hellojpaadvanced.repository.HotelRepository;
 import com.ironhack.hellojpaadvanced.repository.LocationRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
@@ -11,10 +14,13 @@ import org.springframework.stereotype.Component;
 public class DataLoader implements CommandLineRunner {
 
     private final LocationRepository locationRepository;
+    private final HotelRepository hotelRepository;
 
 
-    public DataLoader(LocationRepository locationRepository) {
+    public DataLoader(LocationRepository locationRepository,
+                      HotelRepository hotelRepository) {
         this.locationRepository = locationRepository;
+        this.hotelRepository = hotelRepository;
     }
 
     @Override
@@ -29,6 +35,13 @@ public class DataLoader implements CommandLineRunner {
         locationRepository.save(location1);
         locationRepository.save(location2);
         locationRepository.save(location3);
+
+
+        var hotel1 = new Hotel("White Lotus - Taormina", 1L, HotelType.LUXURY);
+        var hotel2 = new Hotel("Hilton - Madrid", 2L, HotelType.BUSINESS);
+
+        hotelRepository.save(hotel1);
+        hotelRepository.save(hotel2);
 
         System.out.println("Loading data complete.");
     }
